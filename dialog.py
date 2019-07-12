@@ -52,8 +52,11 @@ class ChoiceBox(arcade.Sprite):
             self.center_x = center_x_right
             self.center_y = center_y_bottom
 
-    def on_choice_box(self):
-        pass
+    def on_choice_box(self, x, y):
+        if self.left <= x <= self.right:
+            if self.bottom <= y <= self.top:
+                return True
+        return False
 
 
 class QuestionBox(arcade.Sprite):
