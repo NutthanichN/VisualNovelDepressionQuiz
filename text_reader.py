@@ -1,17 +1,22 @@
 class TextReader:
     def __init__(self,start_directory,username):
+        self.loop_round = 0
         self.username = username
         self.directory = start_directory
-        try:
-            self.dialog = list(open(start_directory,'r').read().split('&'))
-        except UnicodeDecodeError:
-            self.dialog = list(open(start_directory,'r', encoding='utf-8').read().split('&'))
+    
+            
+      
+        self.dialog = list(open(start_directory,'r').read().split('&'))
         self.index = 1
         self.path = []
         self.score = 0
         self.loop_stop = False
+        
     def read_text(self,directory):
-        self.dialog = list(open(directory,'r').read().split('&'))
+        if self.loop_round == 6:
+            self.dialog = list(open(directory,'r', encoding='utf-8').read().split('&'))
+        else:
+            self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 1
     def get_next_action(self):
         if self.loop_stop:
@@ -40,9 +45,11 @@ class TextReader:
         self.index += 1
         return return_value
     def change_path(self,question):
+        self.loop_round +=1
         self.data_entry(question)
         self.read_text(self.path[question-1].replace('\n',''))
         self.loop_stop = False
+        
     def data_entry(self,question):
         record = open(f'result/{self.username}.txt','a')
         record.write(f'{self.question[3:]}')
