@@ -117,10 +117,10 @@ class Text:
             arcade.draw_text(self.current_dialog[1][0], 0, 0,
                              arcade.color.BLACK, self.font_size)
 
-        print(self.current_dialog)
-        print(f"previous {self.previous_dialog}")
-        print(self.text_reader.dialog)
-        print(self.text_reader.path)
+        # print(self.current_dialog)
+        # print(f"previous {self.previous_dialog}")
+        # print(self.text_reader.dialog)
+        # print(self.text_reader.path)
 
     def next_dialog(self):
         self.previous_dialog = self.current_dialog
@@ -228,6 +228,20 @@ class DialogDrawer(arcade.Sprite):
             self.text.dialog_start_x = 0
             self.text.dialog_start_y = 0
 
+    def check_answer(self, x, y):
+        if self.choice_box_l_t.on_choice_box(x, y):
+            return 1
+        elif self.choice_box_l_b.on_choice_box(x, y):
+            return 3
+        elif self.choice_box_r_t.on_choice_box(x, y):
+            return 2
+        elif self.choice_box_r_b.on_choice_box(x, y):
+            return 4
+
+    def choose_root_story(self, answer):
+        self.text.text_reader.change_path(answer)
+        print("############ send answer! ############")
+
     def display_dialog_box(self):
         self.dialog_box.draw()
 
@@ -242,14 +256,8 @@ class DialogDrawer(arcade.Sprite):
     def display_text(self):
         self.set_up_text_position()
         self.text.draw_text_paragraph()
-
-        # self.choice_text_l_t.draw_text_paragraph()
-        # self.choice_text_l_b.draw_text_paragraph()
-        # self.choice_text_r_t.draw_text_paragraph()
-        # self.choice_text_r_b.draw_text_paragraph()
-
-        print('---------------------------------------------------------------------------')
-        print(self.text.count_line_break())
+        # print('---------------------------------------------------------------------------')
+        # print(self.text.count_line_break())
 
     def display_character(self):
         self.character.draw()

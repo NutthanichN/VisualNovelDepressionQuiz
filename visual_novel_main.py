@@ -95,16 +95,23 @@ class VisualNovelWindow(arcade.Window):
         #     self.draw_dialog_text = False
 
     def on_mouse_press(self, x, y, button, modifiers):
+        # answer = self.dialog.check_answer(x, y)
+        # self.dialog.choose_root_story(answer)
+
         if self.dialog.choice_box_l_t.on_choice_box(x, y):
+            self.dialog.choose_root_story(1)
             print("On l_t")
             print("===================")
         elif self.dialog.choice_box_l_b.on_choice_box(x, y):
+            self.dialog.choose_root_story(3)
             print("On l_b")
             print("===================")
         elif self.dialog.choice_box_r_t.on_choice_box(x, y):
+            self.dialog.choose_root_story(2)
             print("On r_t")
             print("===================")
         elif self.dialog.choice_box_r_b.on_choice_box(x, y):
+            self.dialog.choose_root_story(4)
             print("On r_b")
             print("===================")
         else:
