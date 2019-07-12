@@ -39,6 +39,7 @@ class VisualNovelWindow(arcade.Window):
 
     def update(self, delta):
         self.background = arcade.load_texture(self.background_pic)
+        self.dialog.update_category()
 
         # use print to test so I put these lines here
         # if self.draw_text:
@@ -52,14 +53,22 @@ class VisualNovelWindow(arcade.Window):
         if self.draw_character:
             self.dialog.display_character()
 
-        if self.draw_dialog_box:
+        # new
+        if self.dialog.is_dialog:
             self.dialog.display_dialog_box()
-
-        if self.draw_choice_box:
-            self.dialog.display_choice_and_question_box()
-
-        if self.draw_dialog_text:
             self.dialog.display_text()
+        elif self.dialog.is_choice:
+            self.dialog.display_choice_and_question_box()
+            self.dialog.display_text()
+
+        # if self.draw_dialog_box:
+        #     self.dialog.display_dialog_box()
+        #
+        # if self.draw_choice_box:
+        #     self.dialog.display_choice_and_question_box()
+        #
+        # if self.draw_dialog_text:
+        #     self.dialog.display_text()
 
     def on_key_press(self, key, key_modifiers):
         if key == arcade.key.RIGHT:

@@ -178,6 +178,7 @@ class DialogDrawer(arcade.Sprite):
 
         self.is_dialog = True
         self.is_choice = False
+        self.scene_change = False
 
     def set_up_choice_boxes(self):
         self.choice_box_l_t.set_up_position(True, False, False, False)
@@ -252,6 +253,14 @@ class DialogDrawer(arcade.Sprite):
 
     def display_character(self):
         self.character.draw()
+
+    def update_category(self):
+        if self.text.current_dialog[0] == 'D':
+            self.is_dialog = True
+            self.is_choice = False
+        elif self.text.current_dialog[0] == 'Q':
+            self.is_dialog = False
+            self.is_choice = True
 
 
 class Status:
