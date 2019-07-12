@@ -72,7 +72,7 @@ class QuestionBox(arcade.Sprite):
 
 class Text:
     def __init__(self):
-        self.text_reader = TextReader('story/test_story_1.txt', 'admin')
+        self.text_reader = TextReader('story/start.txt', 'admin')
         self.current_dialog = self.text_reader.get_next_action()
         self.previous_dialog = []
 
