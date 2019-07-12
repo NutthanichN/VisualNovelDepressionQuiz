@@ -98,22 +98,28 @@ class VisualNovelWindow(arcade.Window):
         # answer = self.dialog.check_answer(x, y)
         # self.dialog.choose_root_story(answer)
 
-        if self.dialog.choice_box_l_t.on_choice_box(x, y):
-            self.dialog.choose_root_story(1)
-            print("On l_t")
-            print("===================")
-        elif self.dialog.choice_box_l_b.on_choice_box(x, y):
-            self.dialog.choose_root_story(3)
-            print("On l_b")
-            print("===================")
-        elif self.dialog.choice_box_r_t.on_choice_box(x, y):
-            self.dialog.choose_root_story(2)
-            print("On r_t")
-            print("===================")
-        elif self.dialog.choice_box_r_b.on_choice_box(x, y):
-            self.dialog.choose_root_story(4)
-            print("On r_b")
-            print("===================")
+        if self.dialog.is_choice:
+            if self.dialog.choice_box_l_t.on_choice_box(x, y):
+                print("On l_t")
+                print("===================")
+                self.dialog.choose_root_story(1)
+            elif self.dialog.choice_box_r_t.on_choice_box(x, y):
+                print("On r_t")
+                print("===================")
+                self.dialog.choose_root_story(2)
+            elif self.dialog.choice_box_l_b.on_choice_box(x, y):
+                print("On l_b")
+                print("===================")
+                if len(self.dialog.text.current_dialog[1]) >= 3:
+                    self.dialog.choose_root_story(3)
+            elif self.dialog.choice_box_r_b.on_choice_box(x, y):
+                print("On r_b")
+                print("===================")
+                if len(self.dialog.text.current_dialog[1]) == 4:
+                    self.dialog.choose_root_story(4)
+            else:
+                print("not on any choice box")
+                print("===================")
         else:
             print("not on any choice box")
             print("===================")

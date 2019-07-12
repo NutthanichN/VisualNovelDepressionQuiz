@@ -239,8 +239,9 @@ class DialogDrawer(arcade.Sprite):
             return 4
 
     def choose_root_story(self, answer):
+        print(f"############ send answer! {answer} ############")
         self.text.text_reader.change_path(answer)
-        print("############ send answer! ############")
+        print("############ finish! ############")
 
     def display_dialog_box(self):
         self.dialog_box.draw()
