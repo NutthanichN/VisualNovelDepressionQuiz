@@ -11,7 +11,7 @@ class TextReader:
         self.index = 0
     def get_next_action(self):
         if self.dialog[self.index][0] == '$':
-            return_value = ['D',[self.dialog[self.index][1:]]]
+            return_value = ['D',[self.dialog[self.index][1:].replace('*',self.username).replace('#','miina')]]
         elif self.dialog[self.index][0] == '@':
             return_value = list(self.dialog[self.index][1:].split('%'))
             answer = list(return_value[0].split('+'))
@@ -23,6 +23,8 @@ class TextReader:
             return_value = ['S',[self.dialog[self.index][1:]]]
         elif self.dialog[self.index][0] == '=':
             return_value = ['P',[self.dialog[self.index][1:]]]
+        else:
+            print('this data did not use the correct formatting, the program will skip thi dialog')
         self.index += 1
         return return_value
     def change_path(self,question):
@@ -30,12 +32,16 @@ class TextReader:
         self.read_text(self.path[question-1])
     def data_entry(self,question):
         record = open(f'result/{self.username}.txt','a')
-        record.write(f'{self.question}')
+        record.write(f'{self.question[3:]}')
         for answer in self.answer:
             record.write(f'/{answer[:-1]}')
         record.write(f'/{question}\n')
         record.close()
         self.score += int(self.answer[question-1][-1])
+    def record_score(self):
+        record = open(f'result/{self.username}.txt','a')
+        record.write(f'{self.score}')
+        record.close()
         
 
         
