@@ -1,0 +1,1 @@
+$*:This is fail skip&$#:Well, I think you’re right.&$#:Then, Maybe you’re just bored or you just want to sleep?&@ I just want to sleep all days in some day.1+Yeah, I usually get bored with my life.2+Precisely, I think sleeping all days suits me best.3%
