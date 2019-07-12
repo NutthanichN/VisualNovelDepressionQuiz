@@ -6,12 +6,12 @@ class TextReader:
         self.index = 0
         self.path = []
         self.score = 0
-        loop_stop = False
+        self.loop_stop = False
     def read_text(self,directory):
         self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 0
     def get_next_action(self):
-        if not loop_stop:
+        if self.loop_stop:
             pass
         if self.dialog[self.index][0] == '$':
             return_value = ['D',list(self.dialog[self.index][1:].replace('*',self.username).replace('#','miina').split(':'))]
@@ -22,7 +22,7 @@ class TextReader:
             self.question = self.dialog[self.index -1][1:]
             self.path = list(return_value[1].split('+'))
             return_value = ['Q',answer]
-            loop stop = True
+            self.loop_stop = True
         elif self.dialog[self.index][0] == '-':
             return_value = ['S',[self.dialog[self.index][1:]]]
         elif self.dialog[self.index][0] == '=':
@@ -34,7 +34,7 @@ class TextReader:
     def change_path(self,question):
         self.data_entry(question)
         self.read_text(self.path[question-1])
-        loop_stop = False
+        self.loop_stop = False
     def data_entry(self,question):
         record = open(f'result/{self.username}.txt','a')
         record.write(f'{self.question[3:]}')
