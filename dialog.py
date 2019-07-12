@@ -121,10 +121,10 @@ class Text:
             arcade.draw_text(self.current_dialog[1][0], 0, 0,
                              arcade.color.BLACK, self.font_size)
 
-        print(self.current_dialog)
-        print(f"previous {self.previous_dialog}")
-        print(self.text_reader.dialog)
-        print(self.text_reader.path)
+        # print(self.current_dialog)
+        # print(f"previous {self.previous_dialog}")
+        # print(self.text_reader.dialog)
+        # print(self.text_reader.path)
 
     def next_dialog(self):
         print("1")
@@ -268,8 +268,8 @@ class DialogDrawer(arcade.Sprite):
     def display_text(self):
         self.set_up_text_position()
         self.text.draw_text_paragraph()
-        print('---------------------------------------------------------------------------')
-        print(self.text.count_line_break())
+        # print('---------------------------------------------------------------------------')
+        # print(self.text.count_line_break())
 
     def display_character(self):
         self.character.draw()
