@@ -27,7 +27,7 @@ class VisualNovelWindow(arcade.Window):
 
         self.draw_dialog_box = False
         self.draw_choice_box = False
-        self.draw_text = False
+        self.draw_dialog_text = False
         self.draw_character = True
 
     def change_background(self):
@@ -58,7 +58,7 @@ class VisualNovelWindow(arcade.Window):
         if self.draw_choice_box:
             self.dialog.display_choice_and_question_box()
 
-        if self.draw_text:
+        if self.draw_dialog_text:
             self.dialog.display_text()
 
     def on_key_press(self, key, key_modifiers):
@@ -78,19 +78,27 @@ class VisualNovelWindow(arcade.Window):
                 self.draw_choice_box = True
 
         if key == arcade.key.T:
-            # if self.draw_text:
-            #     self.draw_text = False
-            # else:
-            #     self.draw_text = True
-            self.draw_text = True
+            self.draw_dialog_text = True
             self.dialog.text.next_dialog()
+
+        if key == arcade.key.Y:
+            self.draw_dialog_text = False
 
     def on_mouse_press(self, x, y, button, modifiers):
         if self.dialog.choice_box_l_t.on_choice_box(x, y):
-            print("On")
+            print("On l_t")
+            print("===================")
+        elif self.dialog.choice_box_l_b.on_choice_box(x, y):
+            print("On l_b")
+            print("===================")
+        elif self.dialog.choice_box_r_t.on_choice_box(x, y):
+            print("On r_t")
+            print("===================")
+        elif self.dialog.choice_box_r_b.on_choice_box(x, y):
+            print("On r_b")
             print("===================")
         else:
-            print("not on")
+            print("not on any choice box")
             print("===================")
 
 
