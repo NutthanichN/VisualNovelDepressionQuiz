@@ -7,6 +7,7 @@
 5.ask size of game window
 """
 import arcade
+from text_reader import TextReader
 
 
 class DialogBox(arcade.Sprite):
@@ -62,7 +63,16 @@ class QuestionBox(arcade.Sprite):
 
 
 class Text:
-    pass
+    def __init__(self):
+        self.text_reader = TextReader('test story 1.txt')
+        self.text_reader.read_text('test story 1.txt')
+        self.current_dialog = self.text_reader.get_next_action()
+
+    def draw_text(self):
+        print(self.current_dialog)
+
+    def next_dialog(self):
+        self.current_dialog = self.text_reader.get_next_action()
 
 
 class DialogDrawer(arcade.Sprite):
@@ -80,16 +90,7 @@ class DialogDrawer(arcade.Sprite):
         self.choice_box_r_b = ChoiceBox(choice_box_pic, screen_width, screen_height)
         self.set_up_choice_boxes()
 
-        # self.background_pics = ["images/forest_background.jpg", "images/forest_background_2.jpg"]
-        # self.background_pic = self.background_pics[0]
-        # self.character_pic = ""
-
-    # def change_background(self):
-    #     next_index = self.background_pics.index(self.background_pic) + 1
-    #     if next_index < len(self.background_pics):
-    #         self.background_pic = self.background_pics[next_index]
-    #     else:
-    #         return
+        self.text = Text()
 
     def set_up_choice_boxes(self):
         self.choice_box_l_t.set_up_position(True, False, False, False)
@@ -99,31 +100,20 @@ class DialogDrawer(arcade.Sprite):
 
     def display_dialog_box(self):
         self.dialog_box.draw()
-        # width = self.screen_width - 150     # 1350
-        # height = self.screen_height // 3    # 240
-        # center_x = self.screen_width // 2
-        # center_y = (height // 2) + 30
-        # arcade.draw_rectangle_filled(center_x, center_y, width, height, arcade.color.WHITE)
 
     def display_choice_and_question_box(self):
-        # width = self.screen_width // 2.3    # 652
-        # height = self.screen_height // 4    # 180
-        # top_margin = height // 2            # 90
-        # left_margin = width // 2            # 326
-        #
-        # center_x_left = left_margin + (self.screen_width - (self.screen_width - 75))    # 251
-        # center_x_right = self.screen_width - left_margin - 75       #
-        #
-        # center_y_bottom = self.screen_height // 2 + 25      # 385
-        # center_y_top = center_y_bottom + top_margin + 125   # 600
-        #
-        # arcade.draw_rectangle_filled(center_x_left, center_y_bottom, width, height, arcade.color.BLACK)
-        # arcade.draw_rectangle_filled(center_x_left, center_y_top, width, height, arcade.color.BLACK)
-        # arcade.draw_rectangle_filled(center_x_right, center_y_top, width, height, arcade.color.BLACK)
-        # arcade.draw_rectangle_filled(center_x_right, center_y_bottom, width, height, arcade.color.BLACK)
         self.question_box.draw()
 
         self.choice_box_l_t.draw()
         self.choice_box_l_b.draw()
         self.choice_box_r_t.draw()
         self.choice_box_r_b.draw()
+
+    def display_text(self):
+        self.text.draw_text()
+
+
+class Status:
+    def __init__(self, screen_width, screen_height):
+        self.screen_width = screen_width
+        self.screen_height = screen_height
