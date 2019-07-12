@@ -6,9 +6,7 @@ class TextReader:
         self.index = 0
         self.path = []
         self.score = 0
-        record = open(f'result/{self.username}.txt','w')
-        record.write(f'Patient name : {self.username}\n')
-        record.close
+        
     def read_text(self,directory):
         self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 0
@@ -43,7 +41,8 @@ class TextReader:
         self.score += int(self.answer[question-1][-1])
     def record_score(self):
         record = open(f'result/{self.username}.txt','a')
-        record.write(f'{self.score}')
+        record.write(f'{self.score}\n')
+        record.write(f'Patient name : {self.username}\n')
         record.close()
         
 
