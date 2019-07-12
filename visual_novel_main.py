@@ -86,7 +86,12 @@ class VisualNovelWindow(arcade.Window):
             self.dialog.text.next_dialog()
 
     def on_mouse_press(self, x, y, button, modifiers):
-        pass
+        if self.dialog.choice_box_l_t.on_choice_box(x, y):
+            print("On")
+            print("===================")
+        else:
+            print("not on")
+            print("===================")
 
 
 def main():
