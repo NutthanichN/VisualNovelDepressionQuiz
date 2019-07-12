@@ -64,15 +64,29 @@ class QuestionBox(arcade.Sprite):
 
 class Text:
     def __init__(self):
-        self.text_reader = TextReader('test story 1.txt')
-        self.text_reader.read_text('test story 1.txt')
+        self.text_reader = TextReader('story/test story 1.txt')
         self.current_dialog = self.text_reader.get_next_action()
 
+        self.start_x = 0
+        self.start_y = 0
+        self.width = 0
+
+    # def set_up_text_position(self):
+    #     for category in self.current_dialog:
+    #         if category == 'D':
+    #             pass
+
     def draw_text(self):
+        arcade.draw_text(self.current_dialog[1][0], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
         print(self.current_dialog)
 
     def next_dialog(self):
         self.current_dialog = self.text_reader.get_next_action()
+
+    def count_paragraph(self):
+        paragraphs = self.current_dialog[1][0].split('\n')
+        return len(paragraphs)
+        # print(paragraphs)
 
 
 class DialogDrawer(arcade.Sprite):
@@ -91,12 +105,22 @@ class DialogDrawer(arcade.Sprite):
         self.set_up_choice_boxes()
 
         self.text = Text()
+        self.set_up_text_position()
 
     def set_up_choice_boxes(self):
         self.choice_box_l_t.set_up_position(True, False, False, False)
         self.choice_box_l_b.set_up_position(False, True, False, False)
         self.choice_box_r_t.set_up_position(False, False, True, False)
         self.choice_box_r_b.set_up_position(False, False, False, True)
+
+    def set_up_text_position(self):
+        category = self.text.current_dialog[0]
+        if category == 'D':
+            self.text.start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 15
+            self.text.start_y = self.dialog_box.center_y + 50
+        else:
+            self.text.start_x = 0
+            self.text.start_y = 0
 
     def display_dialog_box(self):
         self.dialog_box.draw()
@@ -110,7 +134,10 @@ class DialogDrawer(arcade.Sprite):
         self.choice_box_r_b.draw()
 
     def display_text(self):
+        self.set_up_text_position()
         self.text.draw_text()
+        print('---------------------------------------------------------------------------')
+        print(self.text.count_paragraph())
 
 
 class Status:

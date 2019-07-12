@@ -38,8 +38,8 @@ class VisualNovelWindow(arcade.Window):
         self.background = arcade.load_texture(self.background_pic)
 
         # use print to test so I put these lines here
-        if self.draw_text:
-            self.dialog.display_text()
+        # if self.draw_text:
+        #     self.dialog.display_text()
 
     def on_draw(self):
         arcade.start_render()
@@ -50,6 +50,9 @@ class VisualNovelWindow(arcade.Window):
 
         if self.draw_choice_box:
             self.dialog.display_choice_and_question_box()
+
+        if self.draw_text:
+            self.dialog.display_text()
 
     def on_key_press(self, key, key_modifiers):
         if key == arcade.key.RIGHT:
