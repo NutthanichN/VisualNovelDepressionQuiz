@@ -10,9 +10,13 @@ class VisualNovelWindow(arcade.Window):
     def __init__(self, width, height, title):
         super().__init__(width, height, title)
 
-        arcade.set_background_color(arcade.color.SADDLE_BROWN)
+        # arcade.set_background_color(arcade.color.SADDLE_BROWN)
 
-        self.dialog_box = DialogDrawer(SCREEN_WIDTH, SCREEN_HEIGHT)
+        self.dialog_box_pic = "images/dialog_box_1350x240.png"
+        self.question_box_pic = "images/question_box_1350x100.PNG"
+        self.choice_box_pic = "images/choice_box_652x140.PNG"
+        self.dialog = DialogDrawer(SCREEN_WIDTH, SCREEN_HEIGHT,
+                                   self.dialog_box_pic, self.choice_box_pic, self.question_box_pic)
 
         self.background_pics = ["images/forest_background.jpg", "images/forest_background_2.jpg"]
         self.background_pic = self.background_pics[0]
@@ -37,10 +41,10 @@ class VisualNovelWindow(arcade.Window):
         arcade.draw_texture_rectangle(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2,
                                       SCREEN_WIDTH, SCREEN_HEIGHT, self.background)
         if self.draw_dialog_box:
-            self.dialog_box.display_dialog_box()
+            self.dialog.display_dialog_box()
 
         if self.draw_choice_box:
-            self.dialog_box.display_choice_box()
+            self.dialog.display_choice_and_question_box()
 
     def on_key_press(self, key, key_modifiers):
         if key == arcade.key.RIGHT:
