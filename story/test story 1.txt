@@ -1,0 +1,2 @@
+$*: hello my name is&$#: nice to meet you
+line break test&$#: this is a question&-1&=1&@qone 0+qtwo 1+qthree 3+qfour 2%story/pathQ1/test_Q1.txt+story/pathQ2/test_Q2.txt+story/pathQ3/test_Q3.txt+story/pathQ4/test_Q4.txt
