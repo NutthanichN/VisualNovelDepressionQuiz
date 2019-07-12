@@ -25,6 +25,7 @@ class VisualNovelWindow(arcade.Window):
 
         self.draw_dialog_box = False
         self.draw_choice_box = False
+        self.draw_text = False
 
     def change_background(self):
         next_index = self.background_pics.index(self.background_pic) + 1
@@ -36,6 +37,10 @@ class VisualNovelWindow(arcade.Window):
     def update(self, delta):
         self.background = arcade.load_texture(self.background_pic)
 
+        # use print to test so I put these lines here
+        # if self.draw_text:
+        #     self.dialog.display_text()
+
     def on_draw(self):
         arcade.start_render()
         arcade.draw_texture_rectangle(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2,
@@ -45,6 +50,9 @@ class VisualNovelWindow(arcade.Window):
 
         if self.draw_choice_box:
             self.dialog.display_choice_and_question_box()
+
+        if self.draw_text:
+            self.dialog.display_text()
 
     def on_key_press(self, key, key_modifiers):
         if key == arcade.key.RIGHT:
@@ -61,6 +69,14 @@ class VisualNovelWindow(arcade.Window):
                 self.draw_choice_box = False
             else:
                 self.draw_choice_box = True
+
+        if key == arcade.key.T:
+            # if self.draw_text:
+            #     self.draw_text = False
+            # else:
+            #     self.draw_text = True
+            self.draw_text = True
+            self.dialog.text.next_dialog()
 
 
 def main():
