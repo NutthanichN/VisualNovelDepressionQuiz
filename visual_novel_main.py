@@ -75,23 +75,24 @@ class VisualNovelWindow(arcade.Window):
             self.change_background()
 
         if key == arcade.key.ENTER:
-            if self.draw_dialog_box:
-                self.draw_dialog_box = False
-            else:
-                self.draw_dialog_box = True
-
-        if key == arcade.key.SPACE:
-            if self.draw_choice_box:
-                self.draw_choice_box = False
-            else:
-                self.draw_choice_box = True
-
-        if key == arcade.key.T:
-            self.draw_dialog_text = True
             self.dialog.text.next_dialog()
+            # if self.draw_dialog_box:
+            #     self.draw_dialog_box = False
+            # else:
+            #     self.draw_dialog_box = True
 
-        if key == arcade.key.Y:
-            self.draw_dialog_text = False
+        # if key == arcade.key.SPACE:
+        #     if self.draw_choice_box:
+        #         self.draw_choice_box = False
+        #     else:
+        #         self.draw_choice_box = True
+        #
+        # if key == arcade.key.T:
+        #     self.draw_dialog_text = True
+        #     self.dialog.text.next_dialog()
+        #
+        # if key == arcade.key.Y:
+        #     self.draw_dialog_text = False
 
     def on_mouse_press(self, x, y, button, modifiers):
         if self.dialog.choice_box_l_t.on_choice_box(x, y):

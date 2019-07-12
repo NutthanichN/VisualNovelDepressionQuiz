@@ -176,7 +176,7 @@ class DialogDrawer(arcade.Sprite):
 
         self.character = Character(character_pic, screen_width, screen_height)
 
-        self.is_dialog = True
+        self.is_dialog = False
         self.is_choice = False
         self.scene_change = False
 
@@ -258,9 +258,19 @@ class DialogDrawer(arcade.Sprite):
         if self.text.current_dialog[0] == 'D':
             self.is_dialog = True
             self.is_choice = False
+            self.scene_change = False
         elif self.text.current_dialog[0] == 'Q':
             self.is_dialog = False
             self.is_choice = True
+            self.scene_change = False
+        elif self.text.current_dialog[0] == 'S':
+            self.is_dialog = False
+            self.is_choice = False
+            self.scene_change = True
+        elif self.text.current_dialog[0] == 'P':
+            self.is_dialog = False
+            self.is_choice = False
+            self.scene_change = False
 
 
 class Status:
