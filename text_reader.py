@@ -6,14 +6,10 @@ class TextReader:
         self.index = 0
         self.path = []
         self.score = 0
-        self.failskip = 0
     def read_text(self,directory):
         self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 0
     def get_next_action(self):
-        if self.failskip = 0:
-            self.failskip = 1
-            return
         if self.dialog[self.index][0] == '$':
             return_value = ['D',list(self.dialog[self.index][1:].replace('*',self.username).replace('#','miina').split(':'))]
         elif self.dialog[self.index][0] == '@':
