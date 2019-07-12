@@ -9,6 +9,8 @@
 import arcade
 from text_reader import TextReader
 
+CHARACTER_SCALE = 1.5
+
 
 class DialogBox(arcade.Sprite):
     def __init__(self, filename, screen_width, screen_height):
@@ -50,6 +52,9 @@ class ChoiceBox(arcade.Sprite):
             self.center_x = center_x_right
             self.center_y = center_y_bottom
 
+    def on_choice_box(self):
+        pass
+
 
 class QuestionBox(arcade.Sprite):
     def __init__(self, filename, screen_width, screen_height):
@@ -64,20 +69,21 @@ class QuestionBox(arcade.Sprite):
 
 class Text:
     def __init__(self):
-        self.text_reader = TextReader('story/test story 1.txt')
+        self.text_reader = TextReader('story/test story 1.txt', 'admin')
         self.current_dialog = self.text_reader.get_next_action()
 
         self.start_x = 0
         self.start_y = 0
         self.width = 0
 
-    # def set_up_text_position(self):
-    #     for category in self.current_dialog:
-    #         if category == 'D':
-    #             pass
+    def draw_text_paragraph(self):
+        category = self.current_dialog[0]
+        # ['D', ['miina', 'nice to meet you\nline break test']]
+        if category == 'D':
+            arcade.draw_text(self.current_dialog[1][1], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
+        else:
+            arcade.draw_text(self.current_dialog[1][0], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
 
-    def draw_text(self):
-        arcade.draw_text(self.current_dialog[1][0], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
         print(self.current_dialog)
 
     def next_dialog(self):
@@ -89,8 +95,20 @@ class Text:
         # print(paragraphs)
 
 
+class Character(arcade.Sprite):
+    def __init__(self, filename, screen_width, screen_height):
+        self.screen_width = screen_width
+        self.screen_height = screen_height
+
+        super().__init__(filename, CHARACTER_SCALE)
+
+        self.center_x = self.screen_width // 2
+        self.center_y = 250
+
+
 class DialogDrawer(arcade.Sprite):
-    def __init__(self, screen_width, screen_height, dialog_box_pic, choice_box_pic, question_box_pic):
+    def __init__(self, screen_width, screen_height, dialog_box_pic, choice_box_pic, question_box_pic,
+                 character_pic):
         self.screen_width = screen_width
         self.screen_height = screen_height
 
@@ -107,17 +125,41 @@ class DialogDrawer(arcade.Sprite):
         self.text = Text()
         self.set_up_text_position()
 
+        self.character = Character(character_pic, screen_width, screen_height)
+
     def set_up_choice_boxes(self):
         self.choice_box_l_t.set_up_position(True, False, False, False)
         self.choice_box_l_b.set_up_position(False, True, False, False)
         self.choice_box_r_t.set_up_position(False, False, True, False)
         self.choice_box_r_b.set_up_position(False, False, False, True)
 
+    def spilt_name_from_paragraph(self):
+        split_colon = self.text.current_dialog[1][0].split(':')
+        name = split_colon.pop(0)
+        # self.text.current_dialog[1][0] = self.text.current_dialog[1][0][4:]
+        return name
+
     def set_up_text_position(self):
         category = self.text.current_dialog[0]
+        num_paragraph = self.text.count_paragraph()
         if category == 'D':
-            self.text.start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 15
-            self.text.start_y = self.dialog_box.center_y + 50
+            self.text.start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 20
+
+            # arcade.draw_text(self.spilt_name_from_paragraph(), self.text.start_x, 220, arcade.color.BLACK, font_size=30)
+            arcade.draw_text(self.text.current_dialog[1][0], self.text.start_x, 220, arcade.color.BLACK, font_size=30)
+
+            if num_paragraph == 1:
+                self.text.start_y = self.dialog_box.center_y - 25
+            elif num_paragraph == 2:
+                self.text.start_y = self.dialog_box.center_y - 40
+            elif num_paragraph == 3:
+                self.text.start_y = self.dialog_box.center_y - 55
+            elif num_paragraph == 4:
+                self.text.start_y = 75
+            elif num_paragraph == 5:
+                self.text.start_y = 60
+            # elif num_paragraph == 6:
+            #     self.text.start_y = 60
         else:
             self.text.start_x = 0
             self.text.start_y = 0
@@ -135,9 +177,12 @@ class DialogDrawer(arcade.Sprite):
 
     def display_text(self):
         self.set_up_text_position()
-        self.text.draw_text()
+        self.text.draw_text_paragraph()
         print('---------------------------------------------------------------------------')
         print(self.text.count_paragraph())
+
+    def display_character(self):
+        self.character.draw()
 
 
 class Status:
