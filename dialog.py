@@ -99,7 +99,7 @@ class Text:
                              arcade.color.BLACK, self.font_size)
         elif category == 'Q':
             # question part
-            arcade.draw_text(self.previous_dialog[1][0], self.dialog_start_x, 1000,
+            arcade.draw_text(self.previous_dialog[1][1], self.question_start_x, self.question_start_y,
                              arcade.color.BLACK, self.font_size - 10)
             # choice 1-4
             arcade.draw_text(self.current_dialog[1][0], self.choice_start_x_left, self.choice_start_y_top,
@@ -126,7 +126,7 @@ class Text:
         self.previous_dialog = self.current_dialog
         self.current_dialog = self.text_reader.get_next_action()
 
-    def count_paragraph(self):
+    def count_line_break(self):
         category = self.current_dialog[0]
         count = 0
         if category == 'D':
@@ -187,7 +187,7 @@ class DialogDrawer(arcade.Sprite):
 
     def set_up_text_position(self):
         category = self.text.current_dialog[0]
-        num_paragraph = self.text.count_paragraph()
+        num_paragraph = self.text.count_line_break()
         if category == 'D':
             self.text.font_size = 30
             self.text.dialog_start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 20
@@ -211,6 +211,7 @@ class DialogDrawer(arcade.Sprite):
             self.text.choice_start_x_right = 790
 
             self.text.question_start_x = 90
+            self.text.question_start_y = 630
 
             if num_paragraph == 1:
                 self.text.choice_start_y_top = 240
@@ -247,7 +248,7 @@ class DialogDrawer(arcade.Sprite):
         # self.choice_text_r_b.draw_text_paragraph()
 
         print('---------------------------------------------------------------------------')
-        print(self.text.count_paragraph())
+        print(self.text.count_line_break())
 
     def display_character(self):
         self.character.draw()
