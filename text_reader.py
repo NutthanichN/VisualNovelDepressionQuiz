@@ -12,9 +12,14 @@ class TextReader:
         self.score = 0
         self.loop_stop = False
         
-    def read_text(self,directory):
-        if self.loop_round == 6:
+    def read_text(self,directory,num_ans):
+        print(['loop',self.loop_round],num_ans)
+        if self.loop_round ==6:
             self.dialog = list(open(directory,'r', encoding='utf-8').read().split('&'))
+        elif self.loop_round == 9 and num_ans == 1:
+            self.dialog = list(open(directory, 'r', encoding='utf-8').read().split('&'))
+        elif self.loop_round == 9 and num_ans == 3:
+            self.dialog = list(open(directory, 'r', encoding='utf-8').read().split('&'))
         else:
             self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 1
@@ -47,7 +52,7 @@ class TextReader:
     def change_path(self,question):
         self.loop_round +=1
         self.data_entry(question)
-        self.read_text(self.path[question-1].replace('\n',''))
+        self.read_text(self.path[question-1].replace('\n',''),question -1)
         self.loop_stop = False
         
     def data_entry(self,question):

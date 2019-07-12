@@ -1,1 +1,3 @@
-$*:this is fail skip&$#:I see … &$#:You hasn't touched a piece of cookie Are you good?&@I’m alright. Your breakfast was still fully loaded me belly. That’s all. ^^0+Sometime I lost my appetite.1+Yeah! I usually lost my appetite.2+Each day, I rarely eat anything.3%story/Q5/Ans1.txt+story/Q5/Ans2,3,4.txt+story/Q5/Ans2,3,4.txt+story/Q5/Ans2,3,4.txt
+$*:this is fail skip&$#:I see ... &$#:You hasn't touched a piece of cookie Are you good?&@I'm alright.
+Your breakfast was still fully loaded
+my belly. That's all. ^^0+Sometime I lost my appetite.1+Yeah! I usually lost my appetite.2+Each day, I rarely eat anything.3%story/Q5/Ans1.txt+story/Q5/Ans2,3,4.txt+story/Q5/Ans2,3,4.txt+story/Q5/Ans2,3,4.txt

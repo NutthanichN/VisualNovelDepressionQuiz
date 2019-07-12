@@ -1,1 +1,4 @@
-﻿$*:this is fail skip&$#:That's not true. If you die, many people will be very sad. If your problem is so painful, then try to consult a doctor. I’m sure that they can help you.&-0&`
+﻿$*:this is fail skip&$#:That's not true.
+If you die, many people will be very sad.
+If your problem is so painful, then try to consult a doctor. I
+’m sure that they can help you.&-0&`
