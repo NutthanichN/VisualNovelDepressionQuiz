@@ -1,3 +1,6 @@
-$*:this is fail skip&$*:I’m glad to meet you my best friend.&$#:What are you? Why don't you look as cheerful as you are? 
-I think it’s better if we go to talk and have a cup of tea there.&-3&$*:...&$#:Why are you so quiet? Are you sick?&$*:No! I think it’s normal for me.&$#:No! I haven’t seen you like this before.&$*:Well, human can changes like a time, you know?&$#:Really? I think you’re so tired. You should go to bed 
-now, it’s already late.&$~:NEXT DAY&-2&$#:Do you sleep well last night?&@Yeah, I slept well last night. ^^0+I don’t sleep well in last few nights but I slept well last night.1+I don’t sleep well so many times in last few nights. Don’t mind it ^^2+I don’t sleep well. That’s always happen every night.3%story/Q2/Ans2.txt+story/Q2/Ans2.txt+story/Q2/Ans2.txt+story/Q2/Ans2.txt
+$*:this is fail skip&$*:Iï¿½m glad to meet you my best friend.&$#:What are you? Why don't you look as cheerful as you are? 
+I think itï¿½s better if we go to talk and have a cup of tea there.&-3&$*:...&$#:Why are you so quiet? Are you sick?&$*:No! I think itï¿½s normal for me.&$#:No! I havenï¿½t seen you like this before.&$*:Well, human can changes like a time, you know?&$#:Really? I think youï¿½re so tired. You should go to bed 
+now, itï¿½s already late.&$~:NEXT DAY&-2&$#:Do you sleep well last night?&@Yeah, I slept well last night. ^^0+I donï¿½t sleep well in last few
+nights but I slept well last night.1+I donï¿½t sleep well so many times in last
+few nights. Donï¿½t mind it ^^2+I donï¿½t sleep well. Thatï¿½s always
+happen every night.3%story/Q2/Ans2.txt+story/Q2/Ans2.txt+story/Q2/Ans2.txt+story/Q2/Ans2.txt

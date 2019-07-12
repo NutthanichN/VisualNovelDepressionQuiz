@@ -1,4 +1,8 @@
-$*:this is fail skip&$#:I think it’s better if we go to talk there where
-I prepare tea and snacks for you.&-3&$*:How are you, Miina?&$#:I think … it’s about high school. Studying, Exercising 
-or something like that.&$*:You look happy. You didn’t cry like before.&$*:I’m not a kid anymore! How about you? What were you doing when you’re in Thailand?&$#:It’s general things like you, I think.&$*:Miina?&$#:Ah?&$*:What happen?&$#:Nothing. I think you should go to bed now, 
-it’s already late.&$~:NEXT DAY&-2&$#:Do you sleep well last night?&@Yeah, I slept well last night. ^^0+I don’t sleep well in last few nights but I slept well last night.1+I don’t sleep well so many times in last few nights. Don’t mind it ^^2+I don’t sleep well. That’s always happen every night.3%story/Q2/Ans1.txt+story/Q2/Ans1.txt+story/Q2/Ans1.txt+story/Q2/Ans1.txt
+$*:this is fail skip&$#:I think itï¿½s better if we go to talk there where
+I prepare tea and snacks for you.&-3&$*:How are you, Miina?&$#:I think ï¿½ itï¿½s about high school. Studying, Exercising 
+or something like that.&$*:You look happy. You didnï¿½t cry like before.&$*:Iï¿½m not a kid anymore!
+How about you? What were you doing when youï¿½re in Thailand?&$#:Itï¿½s general things like you, I think.&$*:Miina?&$#:Ah?&$*:What happen?&$#:Nothing. I think you should go to bed now,
+itï¿½s already late.&$~:NEXT DAY&-2&$#:Do you sleep well last night?&@Yeah, I slept well last night. ^^0+I donï¿½t sleep well in last
+few nights but I slept well last night.1+I donï¿½t sleep well so many times in
+last few nights. Donï¿½t mind it ^^2+I donï¿½t sleep well.
+Thatï¿½s always happen every night.3%story/Q2/Ans1.txt+story/Q2/Ans1.txt+story/Q2/Ans1.txt+story/Q2/Ans1.txt
