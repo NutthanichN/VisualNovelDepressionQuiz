@@ -75,19 +75,44 @@ class Text:
         self.text_reader = TextReader('story/test story 1.txt', 'admin')
         self.current_dialog = self.text_reader.get_next_action()
 
-        self.start_x = 0
-        self.start_y = 0
-        self.width = 0
+        self.dialog_start_x = 0
+        self.dialog_start_y = 0
+
+        self.choice_start_x_left = 0
+        self.choice_start_x_right = 0
+        self.choice_start_y_top = 0
+        self.choice_start_y_bottom = 0
+
+        self.font_size = 30
+
+        # self.index_choice = 0
 
     def draw_text_paragraph(self):
         category = self.current_dialog[0]
         # ['D', ['miina', 'nice to meet you\nline break test']]
         if category == 'D':
-            arcade.draw_text(self.current_dialog[1][1], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
+            arcade.draw_text(self.current_dialog[1][1], self.dialog_start_x, self.dialog_start_y, arcade.color.BLACK, self.font_size)
+        elif category == 'Q':
+            # arcade.draw_text(self.current_dialog[1][self.index_choice], self.start_x, self.start_y,
+            #                  arcade.color.BLACK, self.font_size)
+            arcade.draw_text(self.current_dialog[1][0], self.choice_start_x_left, self.choice_start_y_top,
+                             arcade.color.BLACK, self.font_size)
+
+            arcade.draw_text(self.current_dialog[1][1], self.choice_start_x_right, self.choice_start_y_top,
+                             arcade.color.BLACK, self.font_size)
+
+            arcade.draw_text(self.current_dialog[1][2], self.choice_start_x_left, self.choice_start_y_bottom,
+                             arcade.color.BLACK, self.font_size)
+
+            arcade.draw_text(self.current_dialog[1][3], self.choice_start_x_right, self.choice_start_y_bottom,
+                             arcade.color.BLACK, self.font_size)
         else:
-            arcade.draw_text(self.current_dialog[1][0], self.start_x, self.start_y, arcade.color.BLACK, font_size=30)
+            arcade.draw_text(self.current_dialog[1][0], 0, 0,
+                             arcade.color.BLACK, self.font_size)
 
         print(self.current_dialog)
+        print(self.text_reader.dialog)
+        print(self.text_reader.path)
 
     def next_dialog(self):
         self.current_dialog = self.text_reader.get_next_action()
@@ -126,9 +151,16 @@ class DialogDrawer(arcade.Sprite):
         self.set_up_choice_boxes()
 
         self.text = Text()
+        # self.choice_text_l_t = Text()
+        # self.choice_text_l_b = Text()
+        # self.choice_text_r_t = Text()
+        # self.choice_text_r_b = Text()
         self.set_up_text_position()
 
         self.character = Character(character_pic, screen_width, screen_height)
+
+        self.is_dialog = True
+        self.is_choice = False
 
     def set_up_choice_boxes(self):
         self.choice_box_l_t.set_up_position(True, False, False, False)
@@ -136,36 +168,58 @@ class DialogDrawer(arcade.Sprite):
         self.choice_box_r_t.set_up_position(False, False, True, False)
         self.choice_box_r_b.set_up_position(False, False, False, True)
 
-    def spilt_name_from_paragraph(self):
-        split_colon = self.text.current_dialog[1][0].split(':')
-        name = split_colon.pop(0)
-        # self.text.current_dialog[1][0] = self.text.current_dialog[1][0][4:]
-        return name
-
     def set_up_text_position(self):
         category = self.text.current_dialog[0]
         num_paragraph = self.text.count_paragraph()
         if category == 'D':
-            self.text.start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 20
+            self.text.font_size = 30
+            self.text.dialog_start_x = self.dialog_box.center_x - (self.dialog_box.width // 2) + 20
 
-            # arcade.draw_text(self.spilt_name_from_paragraph(), self.text.start_x, 220, arcade.color.BLACK, font_size=30)
-            arcade.draw_text(self.text.current_dialog[1][0], self.text.start_x, 220, arcade.color.BLACK, font_size=30)
+            arcade.draw_text(self.text.current_dialog[1][0], self.text.dialog_start_x, 220,
+                             arcade.color.BLACK, font_size=30)
 
             if num_paragraph == 1:
-                self.text.start_y = self.dialog_box.center_y - 25
+                self.text.dialog_start_y = self.dialog_box.center_y - 25
             elif num_paragraph == 2:
-                self.text.start_y = self.dialog_box.center_y - 40
+                self.text.dialog_start_y = self.dialog_box.center_y - 40
             elif num_paragraph == 3:
-                self.text.start_y = self.dialog_box.center_y - 55
+                self.text.dialog_start_y = self.dialog_box.center_y - 55
             elif num_paragraph == 4:
-                self.text.start_y = 75
+                self.text.dialog_start_y = 75
             elif num_paragraph == 5:
-                self.text.start_y = 60
-            # elif num_paragraph == 6:
-            #     self.text.start_y = 60
+                self.text.dialog_start_y = 60
+
+        elif category == 'Q':
+            self.text.choice_start_x_left = 90
+            self.text.choice_start_x_right = 790
+            if num_paragraph == 1:
+                self.text.choice_start_y_top = 240
+                self.text.choice_start_y_bottom = 80
+            elif num_paragraph == 2:
+                self.text.choice_start_y_top = 230
+                self.text.choice_start_y_bottom = 70
+            elif num_paragraph == 3:
+                self.text.choice_start_y_top = 213
+                self.text.choice_start_y_bottom = 53
+            # self.choice_text_l_t.index_choice = 0
+            # self.choice_text_l_t.start_x = self.choice_box_l_t.center_x - (self.choice_box_l_t.width // 2) + 20
+            # self.choice_text_l_t.start_y = 100
+            #
+            # self.choice_text_l_b.index_choice = 2
+            # self.choice_text_l_b.start_x = self.choice_box_l_t.center_x - (self.choice_box_l_t.width // 2) + 20
+            # self.choice_text_l_b.start_y = 50
+            #
+            # self.choice_text_r_t.index_choice = 1
+            # self.choice_text_r_t.start_x = self.screen_width - 100
+            # self.choice_text_r_t.start_y = 100
+            #
+            # self.choice_text_r_b.index_choice = 3
+            # self.choice_text_r_b.start_x = self.screen_width - 100
+            # self.choice_text_r_b.start_y = 50
+
         else:
-            self.text.start_x = 0
-            self.text.start_y = 0
+            self.text.dialog_start_x = 0
+            self.text.dialog_start_y = 0
 
     def display_dialog_box(self):
         self.dialog_box.draw()
@@ -181,6 +235,12 @@ class DialogDrawer(arcade.Sprite):
     def display_text(self):
         self.set_up_text_position()
         self.text.draw_text_paragraph()
+
+        # self.choice_text_l_t.draw_text_paragraph()
+        # self.choice_text_l_b.draw_text_paragraph()
+        # self.choice_text_r_t.draw_text_paragraph()
+        # self.choice_text_r_b.draw_text_paragraph()
+
         print('---------------------------------------------------------------------------')
         print(self.text.count_paragraph())
 
