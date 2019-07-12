@@ -1,2 +1,10 @@
-$*:this is fail skip&$*:hello my name is&$#:nice to meet you *
-line break test&-1&=1&$#:this is a question&@qone0+qtwo1+qthree3+qfour2%story/pathQ1/test_Q1.txt+story/pathQ2/test_Q2.txt+story/pathQ3/test_Q3.txt+story/pathQ4/test_Q4.txt
+$*:this is fail skip&$*:hello my name is *&$#:nice to meet you *
+line break test&-1&=1&$#:this is a question&@qone0
+qone0
+qone0+qtwo1
+qtwo1
+qtwo1+qthree3
+qthree3
+qthree3+qfour2
+qfour2
+qfour2%story/pathQ1/test_Q1.txt+story/pathQ2/test_Q2.txt+story/pathQ3/test_Q3.txt+story/pathQ4/test_Q4.txt
