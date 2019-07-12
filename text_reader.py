@@ -1,9 +1,9 @@
 class TextReader:
     def __init__(self,start_directory):
         self.directory = start_directory
-        self.dialog = []
+        self.dialog = list(open(start_directory,'r').read().split('&'))
         self.index = 0
-        self.path = []  
+        self.path = []
     def read_text(self,directory):
         self.dialog = list(open(directory,'r').read().split('&'))
         self.index = 0
@@ -22,7 +22,7 @@ class TextReader:
         self.index += 1
         return return_value
     def change_path(self,question):
-        read_text(
+        self.read_text(self.path[question-1])
 
         
         

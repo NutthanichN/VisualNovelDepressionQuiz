@@ -1,2 +1,0 @@
-$*: hello my name is&$#: nice to meet you
-line break test&$#: this is a question&-1&=1&@qone 0+qtwo 1+qthree 3+qfour 2%path1+path2+path3+path4
