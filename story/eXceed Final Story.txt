@@ -1,0 +1,76 @@
+STORIES
+[Scene 0] [Pose 0]
+Today, I travel to visit my old friend who has not met since childhood because she was going to study in France. Her butler come to pick me up at the airport and now we arrive at her mansion.
+Butler: “Ms. is waiting in the backyard. Walk straight and you will find her.”
+Shirou: “Okay, thank you.”
+Then, I walk along the way that the butler tell me.
+
+[Scene 1]
+A young woman appeared in front of me with a familiar sound “Shirou channn”.
+
+[Pose 1]
+Miina: “Long time no see. How are you?”
+<1> Shirou: “I’m very well. Glad to meet you.”
+<2> Shirou: “I’m glad to meet you my best friend.”
+<ANS1> Miina: “I think it’s better if we go to talk there where I prepare tea and snacks for you.”
+<ANS2> Miina: “What are you? Why don't you look as cheerful as you are? I think it’s better if we go to talk and have a cup of tea there.”
+
+[Scene 3]
+<1> Shirou: “How are you, Miina?” <2> …
+<1> Miina: “I think … it’s about high school. Studying, Exercising or something like that.”
+<2> Miina: “Why are you so quiet? Are you sick?”
+
+[ROUTE 1]
+Shirou: “You look happy. You didn’t cry like before.”
+Miina: “I’m not a kid anymore! How about you? What were you doing when you’re in Thailand?”
+Shirou: “It’s general things like you I think.”
+Miina: “I see …”
+Shirou: “Miina?”
+Miina: “Ah?”
+Shirou: “What happen?”
+Miina: “Nothing. I think you should go to bed now, it’s already late.”
+
+[ROUTE 2]
+Shirou: “No! I think it’s normal for me.”
+Miina: “No! I haven’t seen you like this before.”
+Shirou: “Well, human can changes like a time, you know?”
+Miina: “Really? I think you’re so tired. You should go to bed now, it’s already late.”
+[NEXT DAY]
+[Scene 2]
+<<Q1>>
+<Route1> Miina: “You look so happy yesterday, why you look so sad today.”
+<Route2> Miina: “You’re so sad yesterday, you have any inconvenient?”
+<<DISPLAY CHOICE Q2>>
+<ANS1-2> Miina: “Well, I think you’re right.”
+<ANS3-4> Miina: “Oh, so bad.” Shirou: “Yeah.”
+<<ANS1 SKIP Q3>>
+Miina: Then, <<Q3>>.
+<<DISPLAY CHOICE Q3>>
+<ANS2> Miina: Haha, Sometimes when I feel tired. I just want to sleep.”
+<ANS3> Miina: “Really? I think life still have a lot of fun.”
+<ANS4> Miina: “No, at least in my mind.”
+Miina: “Hey! My eyes are up here, <<Q4>>.”
+<<DISPLAY CHOICE Q4>>
+<ANS1> Miina: “What? My garden is more interesting than me?” Shirou: “Oops, I’m so sorry. Don’t be angry, my friend.”
+<ANS2> Miina: “I see … ”
+<ANS3-4> Miina: “Really? If it was in the past, you should really stare.”
+Miina: “You hasn't touched a piece of cookie. What are you?”
+<<DISPLAY CHOICE Q5>>
+<ANS1> Miina: “I see … ”
+<ANS2-3-4> Miina: “Really? It’s so curious.”
+Shirou: “Phewww”
+Miina: “<<Q6>>.”
+<<DISPLAY CHOICE Q6>>
+<ANS1> Miina: “Yeah, eat as much as you want.”
+<ANS2-3-4> Miina: “If it was in the past, you should be an energetic person.”
+Miina: “<<Q7>>.”
+<<DISPLAY CHOICE Q7>>
+<ANS1> Miina: “Haha, You really never changed. I’m very happy with that. ^^”
+<ANS2> Miina: “Well, I think so.”
+<ANS3> Miina: “Really?”
+<ANS4> Miina: “I’m just guessing but I’m not happy with that.”
+Miina: “<<Q8>>.”
+<ANS1> Miina: “I see many people suicide in this period. So, I want to make sure that you will be with me for a long time.”
+<ANS2> Miina: “It’s a feeling of wanting to see the beauty of the world. Take care of it and move forward.”
+<ANS3> Miina: “If you think like that, I think you should consult a doctor because humans have only the desire to live.”
+<ANS4> Miina: “That's not true. If you die, many people will be very sad. If your problem is so painful, then try to consult a doctor. I’m sure that they can help you.”
