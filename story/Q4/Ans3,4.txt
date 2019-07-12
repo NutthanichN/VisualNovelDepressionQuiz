@@ -1,1 +1,1 @@
-$*:this is fail skip&$#:“Really? If it was in the past, you should really stare at me.&$#:You hasn't touched a piece of cookie Are you good?&@I’m alright. Your breakfast was still fully loaded me belly. That’s all. ^^0+Sometime I lost my appetite.1+Yeah! I usually lost my appetite.2+Each day, I rarely eat anything.3%
+$*:this is fail skip&$#:Oh, That's bad.&$*:Yeah.&$#:Then, Maybe you’re just bored or you just want to sleep?&@ I just want to sleep all days in some day.1+Yeah, I usually get bored with my life.2+Precisely, I think sleeping all days suits me best.3%
