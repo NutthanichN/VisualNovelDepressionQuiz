@@ -13,7 +13,7 @@ class TextReader:
         self.loop_stop = False
         
     def read_text(self,directory,num_ans):
-        print(['loop',self.loop_round],num_ans)
+        # print(['loop',self.loop_round],num_ans)
         if self.loop_round ==6:
             self.dialog = list(open(directory,'r', encoding='utf-8').read().split('&'))
         elif self.loop_round == 9 and num_ans == 1:
