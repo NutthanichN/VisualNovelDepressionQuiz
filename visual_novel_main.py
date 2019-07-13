@@ -112,32 +112,32 @@ class VisualNovelWindow(arcade.Window):
         if self.dialog.is_choice:
             if len(self.dialog.text.current_dialog[1]) >= 1:
                 if self.dialog.choice_box_l_t.on_choice_box(x, y):
-                    print("On l_t")
-                    print("===================")
+                    # print("On l_t")
+                    # print("===================")
                     # self.dialog.choose_root_story(1)
                     self.dialog.text.text_reader.change_path(1)
                     self.dialog.text.update_dialog()
 
             if len(self.dialog.text.current_dialog[1]) >= 2:
                 if self.dialog.choice_box_r_t.on_choice_box(x, y):
-                    print("On r_t")
-                    print("===================")
+                    # print("On r_t")
+                    # print("===================")
                     # self.dialog.choose_root_story(2)
                     self.dialog.text.text_reader.change_path(2)
                     self.dialog.text.update_dialog()
 
             if len(self.dialog.text.current_dialog[1]) >= 3:
                 if self.dialog.choice_box_l_b.on_choice_box(x, y):
-                    print("On l_b")
-                    print("===================")
+                    # print("On l_b")
+                    # print("===================")
                     # self.dialog.choose_root_story(3)
                     self.dialog.text.text_reader.change_path(3)
                     self.dialog.text.update_dialog()
 
             if len(self.dialog.text.current_dialog[1]) >= 4:
                 if self.dialog.choice_box_r_b.on_choice_box(x, y):
-                    print("On r_b")
-                    print("===================")
+                    # print("On r_b")
+                    # print("===================")
                     # self.dialog.choose_root_story(4)
                     self.dialog.text.text_reader.change_path(4)
                     self.dialog.text.update_dialog()
@@ -145,9 +145,9 @@ class VisualNovelWindow(arcade.Window):
             # else:
             #     print("not on any choice box")
             #     print("===================")
-        else:
-            print("not on any choice box")
-            print("===================")
+        # else:
+        #     print("not on any choice box")
+        #     print("===================")
 
 
 def main():

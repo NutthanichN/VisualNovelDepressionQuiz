@@ -127,11 +127,11 @@ class Text:
         # print(self.text_reader.path)
 
     def next_dialog(self):
-        print("1")
+        # print("1")
         self.previous_dialog = self.current_dialog
-        print("2")
+        # print("2")
         self.current_dialog = self.text_reader.get_next_action()
-        print("3")
+        # print("3")
 
     def count_line_break(self):
         category = self.current_dialog[0]
