@@ -3,7 +3,7 @@ class TextReader:
         self.loop_round = 0
         self.username = username
         self.directory = start_directory
-    
+        self.check = 0
             
       
         self.dialog = list(open(start_directory,'r').read().split('&'))
@@ -57,10 +57,16 @@ class TextReader:
         
     def data_entry(self,question):
         record = open(f'result/{self.username}.txt','a')
-        record.write(f'{self.question[3:]}')
+        self.question = self.question.replace("\n","")
+        record.write(f'{self.question[2:]}')
         for answer in self.answer:
+            answer = answer.replace("\n","")
             record.write(f'/{answer[:-1]}')
-        record.write(f'/{question}\n')
+        if self.check ==0:
+            self.check =1
+            record.write(f'///{question}\n')
+        else:
+            record.write(f'/{question}\n')
         record.close()
         self.score += int(self.answer[question-1][-1])
     def record_score(self):
