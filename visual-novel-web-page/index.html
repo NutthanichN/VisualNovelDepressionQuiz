@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <link href='https://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet'>
+    </head>
+    <body>
+        <div class = "top-menu">
+            <div class = "container">
+                <h3>• Guardian Angel Report Page</h3>
+            </div>
+        </div>
+        <div class = "container">
+            <br>
+            <input type="file" id="file1">
+            <button id="saveBtn">Check</button>
+        </div>
+
+        <div class = "container"> 
+            <div class ="row">
+
+                <div class = "col-12 col-lg-6">
+                    <div class="block_q">
+                        <h2>Question</h2>
+                        <div id = "q-list">
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "col-12 col-lg-6">
+                    <div class="block_r">
+                        <h2>Result</h2>
+                        Standard:
+                        <div class = "container">
+                            <div class = "row">
+                                <div class = "col-3 rate1 ratebox">No Sign</div>                                
+                                <div class = "col-3 rate2 ratebox">Slightly</div>
+                                <div class = "col-3 rate3 ratebox">Moderate</div>
+                                <div class = "col-3 rate4 ratebox">HighChance</div>
+                            </div>
+                        </div>
+                        <hr>
+                        Patient Data:
+                        <div class = "container">
+                            <div class = "block_p">
+                                <div id = "p-data">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="script.js"></script>
+    </body>
+</html>

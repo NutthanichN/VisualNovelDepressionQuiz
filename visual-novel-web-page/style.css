@@ -1,0 +1,126 @@
+body {
+    background: #FCFCFB;
+    animation-name: onload;
+    animation-duration: 2s;
+    font-family: 'Thai Font';
+}
+div.top-menu {
+    color: white;
+    background: #EF98A7;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 0 0 6px rgb(255,150,150);
+}
+div.block_q, div.block_r {
+    color: #604F71;
+    background: white;
+    margin-top: 20px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid rgb(240,232,232);
+    box-shadow: 0   2px 0 rgb(220,220,220),
+                -2px 0   0 rgb(240,240,240),
+                2px 0   0 rgb(240,240,240);
+    height: 600px;
+    opacity: 0.8;
+    transition: box-shadow 0.25s ease-in,
+                opacity    0.25s ease-in,
+}
+div.block_q {
+    overflow: scroll;
+}
+div.col-3 {
+    color: rgba(0,0,0,0);
+    font-weight: bold;
+    text-align: center;
+    font-size: 20px;
+    transition: color   0.5s ease-in;
+    background: white;
+    margin-top: 20px;
+    box-shadow: 0   2px 0 rgb(220,220,220),
+                -2px 0   0 rgb(240,240,240),
+                2px 0   0 rgb(240,240,240);
+    opacity: 0.8;
+}
+div.question {
+    color: #807094;
+    background: white;
+    margin-top: 20px;
+    padding: 8px;
+    font-weight: normal;
+    border-radius: 6px;
+    border: 1px solid rgb(240,232,232);
+    box-shadow: 0   2px 0 rgb(220,220,220),
+                -2px 0   0 rgb(240,240,240),
+                2px 0   0 rgb(240,240,240);
+    transition: box-shadow  0.5s ease-in,
+                font-weight  0.5s ease-in;
+}
+div.answer {
+    background: #AAFFAA;
+    margin-top: 20px;
+    padding: 8px;
+    font-weight: normal;
+    border-radius: 6px;
+    border: 1px solid rgb(240,232,232);
+    box-shadow: 0   2px 0 rgb(220,220,220),
+                -2px 0   0 rgb(240,240,240),
+                2px 0   0 rgb(240,240,240);
+    transition: box-shadow  0.5s ease-in,
+                font-weight  0.5s ease-in;
+}
+div.block_q:hover, div.block_r:hover {
+    box-shadow: 0   0   4px #807094;
+    opacity: 1.0;
+}
+div.question:hover, div.answer:hover {
+    box-shadow: 0   0   4px #444444;
+    font-weight: bold;
+}
+div.ratebox:hover {
+    color: rgba(0,0,0,1);
+}
+h2 {
+    font-family:"Merriweather";
+}
+h3 {
+    font-family:"Lucida Console";
+}
+
+@keyframes addfadechoice {
+  0%   {opacity:0;}
+  50%  {opacity:0;}
+  100%  {opacity:1.0;}
+}
+@keyframes addfadequest {
+  0%   {opacity:0;}
+  100%  {opacity:1.0;}
+}
+@keyframes onload {
+  0%   {opacity:0;}
+  100%  {opacity:1.0;}
+}
+@font-face {
+  font-family: 'Thai Font';
+  unicode-range: U+0E00–U+0E7F;
+}
+@keyframes addfaderesult1 {
+  0%   {background:white;}
+  50%  {background:white;}
+  100%  {background:#00FF33;}
+}
+@keyframes addfaderesult2 {
+  0%   {background:white;}
+  50%  {background:white;}
+  100%  {background:#66CC99;}
+}
+@keyframes addfaderesult3 {
+  0%   {background:white;}
+  50%  {background:white;}
+  100%  {background:#3366CC;}
+}
+@keyframes addfaderesult4 {
+  0%   {background:white;}
+  50%  {background:white;}
+  100%  {background:#333366;}
+}

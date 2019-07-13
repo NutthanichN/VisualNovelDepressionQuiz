@@ -1,0 +1,7 @@
+Do you sleep well last night?/Yeah, I slept well last night. ^^/I don’t sleep well in last few nights but I slept well last night./I don’t sleep well so many times in last few nights. Don’t mind it ^^/I don’t sleep well. That’s always happen every night./3
+You look so sad. Do you feel any discomfort?/There is nothing like that. Maybe I'll be enchanted with your beauty. Hahaha/There are some uncomfortable things on some days. I think it's normal./There are often uncomfortable things. But not now./I always feel uncomfortable these days./2
+#
+14
+Patient Name : Mr.Anthony Bestow
+Gender: Male
+Birthdate: 18/9/1986
