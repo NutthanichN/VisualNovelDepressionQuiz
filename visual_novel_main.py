@@ -17,7 +17,8 @@ class VisualNovelWindow(arcade.Window):
         self.choice_box_pic = "images/choice_box_652x140.PNG"
         self.character_pic = "images/Miina.png"
 
-        self.background_pics = ["images/garden.png", "images/forest_background_2.jpg"]
+        self.background_pics = ["images/black.PNG", "images/garden.png", "images/TeaParty.PNG",
+                                "images/garden_twilight.png"]
         self.background_pic = self.background_pics[0]
         self.background = arcade.load_texture(self.background_pic)
 
@@ -31,11 +32,13 @@ class VisualNovelWindow(arcade.Window):
         self.draw_character = True
 
     def change_background(self):
-        next_index = self.background_pics.index(self.background_pic) + 1
-        if next_index < len(self.background_pics):
-            self.background_pic = self.background_pics[next_index]
-        else:
-            return
+        # next_index = self.background_pics.index(self.background_pic) + 1
+        # if next_index < len(self.background_pics):
+        #     self.background_pic = self.background_pics[next_index]
+        # else:
+        #     return
+        index = self.dialog.get_scene_change()
+        self.background_pic = self.background_pics[index]
 
     def update(self, delta):
         self.background = arcade.load_texture(self.background_pic)
@@ -49,6 +52,13 @@ class VisualNovelWindow(arcade.Window):
         arcade.start_render()
         arcade.draw_texture_rectangle(SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2,
                                       SCREEN_WIDTH, SCREEN_HEIGHT, self.background)
+
+        if self.dialog.scene_change:
+            self.change_background()
+            if self.background_pic == self.background_pics[0]:
+                self.draw_character = False
+            else:
+                self.draw_character = True
 
         if self.draw_character:
             self.dialog.display_character()
@@ -71,11 +81,12 @@ class VisualNovelWindow(arcade.Window):
         #     self.dialog.display_text()
 
     def on_key_press(self, key, key_modifiers):
-        if key == arcade.key.RIGHT:
-            self.change_background()
+        # if key == arcade.key.RIGHT:
+        #     self.change_background()
 
         if key == arcade.key.ENTER:
-            self.dialog.text.next_dialog()
+            if not self.dialog.is_choice:
+                self.dialog.text.next_dialog()
             # if self.draw_dialog_box:
             #     self.draw_dialog_box = False
             # else:
@@ -98,25 +109,45 @@ class VisualNovelWindow(arcade.Window):
         # answer = self.dialog.check_answer(x, y)
         # self.dialog.choose_root_story(answer)
 
-        if self.dialog.choice_box_l_t.on_choice_box(x, y):
-            self.dialog.choose_root_story(1)
-            print("On l_t")
-            print("===================")
-        elif self.dialog.choice_box_l_b.on_choice_box(x, y):
-            self.dialog.choose_root_story(3)
-            print("On l_b")
-            print("===================")
-        elif self.dialog.choice_box_r_t.on_choice_box(x, y):
-            self.dialog.choose_root_story(2)
-            print("On r_t")
-            print("===================")
-        elif self.dialog.choice_box_r_b.on_choice_box(x, y):
-            self.dialog.choose_root_story(4)
-            print("On r_b")
-            print("===================")
-        else:
-            print("not on any choice box")
-            print("===================")
+        if self.dialog.is_choice:
+            if len(self.dialog.text.current_dialog[1]) >= 1:
+                if self.dialog.choice_box_l_t.on_choice_box(x, y):
+                    # print("On l_t")
+                    # print("===================")
+                    # self.dialog.choose_root_story(1)
+                    self.dialog.text.text_reader.change_path(1)
+                    self.dialog.text.update_dialog()
+
+            if len(self.dialog.text.current_dialog[1]) >= 2:
+                if self.dialog.choice_box_r_t.on_choice_box(x, y):
+                    # print("On r_t")
+                    # print("===================")
+                    # self.dialog.choose_root_story(2)
+                    self.dialog.text.text_reader.change_path(2)
+                    self.dialog.text.update_dialog()
+
+            if len(self.dialog.text.current_dialog[1]) >= 3:
+                if self.dialog.choice_box_l_b.on_choice_box(x, y):
+                    # print("On l_b")
+                    # print("===================")
+                    # self.dialog.choose_root_story(3)
+                    self.dialog.text.text_reader.change_path(3)
+                    self.dialog.text.update_dialog()
+
+            if len(self.dialog.text.current_dialog[1]) >= 4:
+                if self.dialog.choice_box_r_b.on_choice_box(x, y):
+                    # print("On r_b")
+                    # print("===================")
+                    # self.dialog.choose_root_story(4)
+                    self.dialog.text.text_reader.change_path(4)
+                    self.dialog.text.update_dialog()
+
+            # else:
+            #     print("not on any choice box")
+            #     print("===================")
+        # else:
+        #     print("not on any choice box")
+        #     print("===================")
 
 
 def main():
